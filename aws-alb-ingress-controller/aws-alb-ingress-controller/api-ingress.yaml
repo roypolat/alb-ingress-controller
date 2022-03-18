@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-port: "31358"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-3fc97859,subnet-b28944e8
+    alb.ingress.kubernetes.io/target-type: instance
+    kubernetes.io/ingress.class: alb
+  name: api-ingress
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: api
+            port:
+              number: 80
+        path: /*
+        pathType: ImplementationSpecific

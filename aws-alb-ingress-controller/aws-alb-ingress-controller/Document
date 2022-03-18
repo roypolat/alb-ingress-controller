@@ -1,0 +1,3 @@
+kubebuilder/controller "msg"="Reconciler error" "error"="failed to build LoadBalancer configuration due to failed to resolve 2 qualified subnet with at least 8 free IP Addresses for ALB. Subnets must contains these tags: 'kubernetes.io/cluster/staging-craftgate-eks': ['shared' or 'owned'] and 'kubernetes.io/role/elb': ['' or '1']. See https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/controller/config/#subnet-auto-discovery for more details. Resolved qualified subnets: '[]'"  "controller"="alb-ingress-controller" "request"={"Namespace":"test-ns","Name":"gateway-ingress-alb"}
+
+Subnetlere kubernetes.io/role/elb = 1 tag eklemek gerek
